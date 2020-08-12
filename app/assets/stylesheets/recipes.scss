@@ -1,3 +1,25 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+html {
+  background-color: rgba(255, 255, 128, .5);;
+  background-repeat: no-repeat;
+  background-size: contain cover;
+  background-position: center;
+}
+
+.navbar {
+background-color: hsl(10, 10%, 80%);;
+}
+
+nav.navbar-fixed-top {
+  position:fixed;
+  top:0;
+}
+
+body::before {
+  display:block;
+  content: '';
+  height:60px;
+}

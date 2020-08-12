@@ -1,0 +1,15 @@
+<nav class="navbar is-spaced is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <strong><%= link_to 'Delicious Recipes', root_path, class: 'navbar-item is-size-2 is-italic' %></strong>
+  </div>
+
+  <div id="navBar" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <%= link_to 'New Recipe', new_recipe_path, class: 'button is-info has-text-weight-bold' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
