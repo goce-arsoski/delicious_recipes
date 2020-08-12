@@ -25,9 +25,18 @@
         <div class="control">
           <p>
             <%= form.label :instructions, class: 'label is-medium' %>
-              <%= form.fields_for :instructions do |instructions_form| %>
-                <%= render "instruction_fields", form: instructions_form %>
-              <% end %>
+            <%= form.fields_for :instructions do |instructions_form| %>
+              <%= render "instruction_fields", form: instructions_form %>
+            <% end %>
+          </p>
+          <br>
+        </div>
+        <div class="control">
+          <p>
+            <%= form.label :ingredients, class: 'label is-medium' %>
+            <%= form.fields_for :ingredients do |ingredients_form| %>
+              <%= render "ingredient_fields", form: ingredients_form %>
+            <% end %>
           </p>
           <br>
         </div>

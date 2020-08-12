@@ -13,20 +13,27 @@
       </p>
     </div>
     <div class="content">
-      <p>
-        <%= render 'instructions/set_instructions', recipe: recipe %>
+      <p class="content is-size-4">
+        <strong>Instructions:</strong>
       </p>
+        <%= render 'instructions/set_instructions', recipe: recipe %>
+    </div>
+    <div class="box">
+      <p class="box-content is-size-5">
+        <strong>Ingredients:</strong>
+      </p>
+        <%= render 'ingredients/list_ingredients', recipe: recipe %>
     </div>
   </div>
   <nav class="level">
     <div class="level-left">
-      <span class="is-size-6 is-italic">Created:
+      <span class="is-size-6 is-italic"> &nbsp;Created:
         <%= recipe.created_at.localtime.strftime("%B %d, %Y") %>
       </span>
     </div>
     <div class="level-right">
       <span class="is-size-6 is-italic">Edited:
-        <%= recipe.updated_at.localtime.strftime("%B %d, %Y") %>
+        <%= recipe.updated_at.localtime.strftime("%B %d, %Y") %> &nbsp;
       </span>
     </div>
   </nav>
