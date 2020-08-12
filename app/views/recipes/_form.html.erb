@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="miltiline">
+    <div class="column is-6 is-offset-3">
+      <div class="content is-size-4">
+        <h1 class="title has-text-centered"><%= title %></h1>
+      </div>
+    </div>
+
+    <div class="column is-4 is-offset-4">
+      <%= form_with model: @recipe, local: true do |form| %>
+        <div class="control">
+          <p>
+            <%= form.label :Recipe_name, class: 'label is-medium' %>
+            <%= form.text_field :title, class: 'input is-medium', placeholder: 'Recipe name' %>
+          </p>
+          <br>
+        </div>
+        <div class="control">
+          <p>
+            <%= form.label :description, class: 'label is-medium' %>
+            <%= form.text_area :description, class: 'textarea is-medium', placeholder: 'Short description' %>
+          </p>
+          <br>
+        </div>
+        <div class="control">
+          <p>
+            <%= form.submit submit, class: 'button is-success' %>
+            <%= link_to 'Cancel', @recipe, class: 'button is-danger' %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

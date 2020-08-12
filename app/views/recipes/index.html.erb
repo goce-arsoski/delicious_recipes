@@ -1,2 +1,12 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<div class="container">
+  <div class="columns is-multiline">
+    <div class="column is-6 is-offset-3">
+      <div class="content is-size-4">
+        <h1 class="title has-text-centered"> Recipes </h1>
+      </div>
+
+      <%= render @recipes, index_user: true %>
+
+    </div>
+  </div>
+</div>
