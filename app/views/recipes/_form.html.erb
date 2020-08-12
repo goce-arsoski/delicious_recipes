@@ -6,6 +6,8 @@
       </div>
     </div>
 
+    <%= render 'shared/errors', object: @recipe %>
+
     <div class="column is-4 is-offset-4">
       <%= form_with model: @recipe, local: true do |form| %>
         <div class="control">
