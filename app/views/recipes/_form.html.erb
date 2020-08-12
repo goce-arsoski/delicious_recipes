@@ -10,7 +10,7 @@
       <%= form_with model: @recipe, local: true do |form| %>
         <div class="control">
           <p>
-            <%= form.label :Recipe_name, class: 'label is-medium' %>
+            <%= form.label :recipe_name, class: 'label is-medium' %>
             <%= form.text_field :title, class: 'input is-medium', placeholder: 'Recipe name' %>
           </p>
           <br>
@@ -19,6 +19,15 @@
           <p>
             <%= form.label :description, class: 'label is-medium' %>
             <%= form.text_area :description, class: 'textarea is-medium', placeholder: 'Short description' %>
+          </p>
+          <br>
+        </div>
+        <div class="control">
+          <p>
+            <%= form.label :instructions, class: 'label is-medium' %>
+              <%= form.fields_for :instructions do |instructions_form| %>
+                <%= render "instruction_fields", form: instructions_form %>
+              <% end %>
           </p>
           <br>
         </div>

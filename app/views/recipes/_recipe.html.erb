@@ -12,6 +12,11 @@
         <%= recipe.description %>
       </p>
     </div>
+    <div class="content">
+      <p>
+        <%= render 'instructions/set_instructions', recipe: recipe %>
+      </p>
+    </div>
   </div>
   <nav class="level">
     <div class="level-left">
@@ -45,7 +50,7 @@
     <% end %>
 
     <%= link_to recipe_path(recipe), class: 'card-footer-item',
-      method: :delete, data: { confirm: 'Are you sure you want to delete this tweet?' } do %>
+      method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' } do %>
       <span>Delete</span>
     <% end %>
   </footer>
