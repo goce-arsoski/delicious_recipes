@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
+
   def new
   end
 
@@ -10,13 +12,14 @@ class SessionsController < ApplicationController
       flash[:success] = "Welcome #{user.first_name}!"
       redirect_to user
     else
-      flash.now[:danger] = 'Login failed. Please try again.'
+      flash.now[:danger] = 'Sign in failed. Please try again.'
       render :new
     end
   end
 
   def destroy
-    log_out
+    session.delete(:user_id)
+    @current_user = nil
     redirect_to root_path
   end
 end

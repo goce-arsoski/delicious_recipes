@@ -13,11 +13,6 @@ module SessionsHelper
     current_user.present?
   end
 
-  def log_out
-    session.delete(:user_id)
-    @current_user = nil
-  end
-
   def equal_with_current_user?(other_user)
     current_user == other_user
   end

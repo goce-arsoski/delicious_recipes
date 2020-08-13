@@ -2,7 +2,7 @@
       <div class="column is-6 is-offset-3">
         <article class="message is-danger">
           <div class="message-body">
-            <p><strong><%= pluralize(obj.errors.count, "error") %> prohibited from being saved:</strong></p>
+            <p><strong><%= pluralize(object.errors.count, "error") %> prohibited from being saved:</strong></p>
             <br>
             <p>
             <% object.errors.full_messages.each do |msg| %>

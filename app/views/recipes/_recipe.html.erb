@@ -2,29 +2,37 @@
   <header class="card-header">
     <% if local_assigns[:index_user] %>
       <p class="card-header-title has-background-grey-light">
-        <%= recipe.title %>
+        <% if logged_in? %>
+          <%= link_to recipe_path(recipe) do %>
+            <span><%= recipe.title %></span>
+          <% end %>
+        <% else %>
+           <span><%= recipe.title %></span>
+        <% end %>
       </p>
     <% end %>
   </header>
-  <div class="card-content">
-    <div class="content">
-      <p>
-        <%= recipe.description %>
-      </p>
+  <% if logged_in? && !local_assigns[:index_user] %>
+    <div class="card-content">
+      <div class="content">
+        <p>
+          <%= recipe.description %>
+        </p>
+      </div>
+      <div class="content">
+        <p class="content is-size-4">
+          <strong>Instructions:</strong>
+        </p>
+          <%= render 'instructions/set_instructions', recipe: recipe %>
+      </div>
+      <div class="box">
+        <p class="box-content is-size-5">
+          <strong>Ingredients:</strong>
+        </p>
+          <%= render 'ingredients/list_ingredients', recipe: recipe %>
+      </div>
     </div>
-    <div class="content">
-      <p class="content is-size-4">
-        <strong>Instructions:</strong>
-      </p>
-        <%= render 'instructions/set_instructions', recipe: recipe %>
-    </div>
-    <div class="box">
-      <p class="box-content is-size-5">
-        <strong>Ingredients:</strong>
-      </p>
-        <%= render 'ingredients/list_ingredients', recipe: recipe %>
-    </div>
-  </div>
+  <% end %>
   <nav class="level">
     <div class="level-left">
       <span class="is-size-6 is-italic"> &nbsp;Created:
@@ -38,27 +46,41 @@
     </div>
   </nav>
   <footer class="card-footer">
-    <%= link_to new_recipe_path(recipe), class: 'card-footer-item' do %>
-      <span>New</span>
-    <% end %>
+    <% if equal_with_current_user?(recipe.user) %>
+      <% unless local_assigns[:index_user] %>
+        <%= link_to new_recipe_path(recipe), class: 'card-footer-item' do %>
+          <span>Add Ingredient</span>
+        <% end %>
+      <% end %>
 
-    <% unless local_assigns[:index_user] %>
-      <%= link_to root_path, class: 'card-footer-item' do %>
-        <span>Back</span>
+      <% unless local_assigns[:index_user] %>
+          <%= link_to root_path, class: 'card-footer-item' do %>
+            <span>Home</span>
+          <% end %>
+      <% else %>
+        <%= link_to recipe_path(recipe), class: 'card-footer-item' do %>
+          <span>Show</span>
+        <% end %>
+      <% end %>
+
+      <%= link_to edit_recipe_path(recipe), class: 'card-footer-item' do %>
+        <span>Edit</span>
+      <% end %>
+
+      <%= link_to recipe_path(recipe), class: 'card-footer-item',
+        method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' } do %>
+        <span>Delete</span>
       <% end %>
     <% else %>
-      <%= link_to recipe_path(recipe), class: 'card-footer-item' do %>
-        <span>Show</span>
+      <% unless local_assigns[:index_user] %>
+          <%= link_to root_path, class: 'card-footer-item' do %>
+            <span>Home</span>
+          <% end %>
+      <% else %>
+        <%= link_to recipe_path(recipe), class: 'card-footer-item' do %>
+          <span>Show</span>
+        <% end %>
       <% end %>
-    <% end %>
-
-    <%= link_to edit_recipe_path(recipe), class: 'card-footer-item' do %>
-      <span>Edit</span>
-    <% end %>
-
-    <%= link_to recipe_path(recipe), class: 'card-footer-item',
-      method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' } do %>
-      <span>Delete</span>
     <% end %>
   </footer>
 </div>
