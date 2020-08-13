@@ -46,13 +46,7 @@
     </div>
   </nav>
   <footer class="card-footer">
-    <% if equal_with_current_user?(recipe.user) %>
-      <% unless local_assigns[:index_user] %>
-        <%= link_to new_recipe_path(recipe), class: 'card-footer-item' do %>
-          <span>Add Ingredient</span>
-        <% end %>
-      <% end %>
-
+    <% if logged_in? && equal_with_current_user?(recipe.user) %>
       <% unless local_assigns[:index_user] %>
           <%= link_to root_path, class: 'card-footer-item' do %>
             <span>Home</span>
@@ -71,7 +65,7 @@
         method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' } do %>
         <span>Delete</span>
       <% end %>
-    <% else %>
+    <% elsif logged_in? %>
       <% unless local_assigns[:index_user] %>
           <%= link_to root_path, class: 'card-footer-item' do %>
             <span>Home</span>

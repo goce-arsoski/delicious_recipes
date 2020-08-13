@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.new(recipe_params)
 
     if @recipe.save
       redirect_to @recipe
@@ -26,6 +26,8 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    3.times { @recipe.instructions.build }
+    3.times { @recipe.ingredients.build }
   end
 
   def update
