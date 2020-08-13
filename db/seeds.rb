@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'factory_bot_rails'
+
+instruction = FactoryBot.create(:instruction)
+ingredient = FactoryBot.create(:ingredient)
+
+6.times do
+  FactoryBot.create :recipe, instructions: [instruction], ingredients: [ingredient]
+end

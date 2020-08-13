@@ -6,7 +6,7 @@ class User < ApplicationRecord
   MAX_FIRST_NAME_LENGTH = 100
   MIN_LAST_NAME_LENGTH = 2
   MAX_LAST_NAME_LENGTH = 100
-  VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+\z/
+  VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*\z/
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_secure_password
