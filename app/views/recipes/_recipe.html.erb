@@ -12,14 +12,11 @@
       </p>
     <% end %>
   </header>
-  <% if logged_in? && !local_assigns[:index_user] %>
-    <div class="card-content">
-      <div class="content">
-        <p class="card-content is-size-4">
-          <strong>Description:</strong>
-        </p>
-          <%= recipe.description %>
-      </div>
+  <div class="card-content">
+    <div class="content">
+      <%= recipe.description %>
+    </div>
+    <% if logged_in? && !local_assigns[:index_user] %>
       <div class="content">
         <p class="content is-size-4">
           <strong>Instructions:</strong>
@@ -32,8 +29,8 @@
         </p>
           <%= render 'ingredients/list_ingredients', recipe: recipe %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
   <nav class="level">
     <div class="level-left">
       <span class="is-size-6 is-italic"> &nbsp;Created:
