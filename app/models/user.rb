@@ -16,7 +16,8 @@ class User < ApplicationRecord
   before_save :email_to_downcase
 
   validates :username, presence: true, length: { maximum: MAX_USERNAME_LENGTH },
-  format: { with: VALID_USERNAME_REGEX }
+  format: { with: VALID_USERNAME_REGEX },
+  uniqueness: true
   validates :email, presence: true, length: { maximum: MAX_EMAIL_LENGTH },
   format: { with: VALID_EMAIL_REGEX },
   uniqueness: true

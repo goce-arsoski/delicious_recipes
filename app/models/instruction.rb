@@ -1,6 +1,6 @@
 class Instruction < ApplicationRecord
   MIN_STEP_LENGTH = 2
-  MAX_STEP_LENGTH = 50
+  MAX_STEP_LENGTH = 1000
 
   belongs_to :recipe, optional: true
 

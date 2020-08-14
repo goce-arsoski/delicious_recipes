@@ -1,6 +1,6 @@
 class Ingredient < ApplicationRecord
   MIN_NAME_LENGTH = 2
-  MAX_NAME_LENGTH = 50
+  MAX_NAME_LENGTH = 100
 
   belongs_to :recipe, optional: true
 
