@@ -10,38 +10,44 @@
 
     <div class="column is-4 is-offset-4">
       <%= form_with model: @recipe, local: true do |form| %>
-        <div class="control">
-          <p>
-            <%= form.label :recipe_name, class: 'label is-medium' %>
-            <%= form.text_field :title, class: 'input is-medium', placeholder: 'Recipe name' %>
-          </p>
-          <br>
-        </div>
-        <div class="control">
-          <p>
-            <%= form.label :description, class: 'label is-medium' %>
-            <%= form.text_area :description, class: 'textarea is-medium', placeholder: 'Short description' %>
-          </p>
-          <br>
-        </div>
-        <div class="control">
-          <p>
-            <%= form.label :instructions, class: 'label is-medium' %>
-            <%= form.fields_for :instructions do |instructions_form| %>
-              <%= render "instruction_fields", form: instructions_form %>
-            <% end %>
-          </p>
-          <br>
-        </div>
-        <div class="control">
-          <p>
-            <%= form.label :ingredients, class: 'label is-medium' %>
-            <%= form.fields_for :ingredients do |ingredients_form| %>
-              <%= render "ingredient_fields", form: ingredients_form %>
-            <% end %>
-          </p>
-          <br>
-        </div>
+        <% unless local_assigns[:edit_ingredients] %>
+          <% unless local_assigns[:edit_instructions] %>
+            <div class="control">
+              <p>
+                <%= form.label :recipe_name, class: 'label is-medium' %>
+                <%= form.text_field :title, class: 'input is-medium', placeholder: 'Recipe name' %>
+              </p>
+              <br>
+            </div>
+            <div class="control">
+              <p>
+                <%= form.label :description, class: 'label is-medium' %>
+                <%= form.text_area :description, class: 'textarea is-medium', placeholder: 'Short description' %>
+              </p>
+              <br>
+            </div>
+          <% end %>
+          <div class="control">
+            <p>
+              <%= form.label :instructions, class: 'label is-medium' %>
+              <%= form.fields_for :instructions do |instructions_form| %>
+                <%= render "instructions/instruction_fields", form: instructions_form %>
+              <% end %>
+            </p>
+            <br>
+          </div>
+        <% end %>
+        <% unless local_assigns[:edit_instructions] %>
+          <div class="control">
+            <p>
+              <%= form.label :ingredients, class: 'label is-medium' %>
+              <%= form.fields_for :ingredients do |ingredients_form| %>
+                <%= render "ingredients/ingredient_fields", form: ingredients_form %>
+              <% end %>
+            </p>
+            <br>
+          </div>
+        <% end %>
         <div class="control">
           <p>
             <%= form.submit submit, class: 'button is-success' %>

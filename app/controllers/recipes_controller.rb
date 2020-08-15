@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   skip_before_action :require_login, only: [:index]
-  before_action :find_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :find_recipe, only: [:show, :edit, :edit_instructions, :edit_ingredients, :update, :destroy]
   before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
@@ -32,12 +32,19 @@ class RecipesController < ApplicationController
   end
 
   def edit
+  end
+
+  def edit_instructions
     3.times { @recipe.instructions.build }
+  end
+
+  def edit_ingredients
     3.times { @recipe.ingredients.build }
   end
 
   def update
     if @recipe.update(recipe_params)
+      flash[:success] = "Recipe updated"
       redirect_to @recipe
     else
       render :edit
