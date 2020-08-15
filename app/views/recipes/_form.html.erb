@@ -2,7 +2,7 @@
   <div class="miltiline">
     <div class="column is-6 is-offset-3">
       <div class="content is-size-4">
-        <h1 class="title has-text-centered"><%= title %></h1>
+        <h1 class="title has-text-centered has-text-weight-bold is-italic"><%= title %></h1>
       </div>
     </div>
 
@@ -45,7 +45,7 @@
         <div class="control">
           <p>
             <%= form.submit submit, class: 'button is-success' %>
-            <%= link_to 'Cancel', @recipe, class: 'button is-danger' %>
+            <%= link_to 'Cancel', @recipe, class: 'button is-light' %>
           </p>
         </div>
       <% end %>
