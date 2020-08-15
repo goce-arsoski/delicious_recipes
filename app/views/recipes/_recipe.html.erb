@@ -1,7 +1,7 @@
 <div class="card block">
   <header class="card-header">
     <% if local_assigns[:index_user] %>
-      <p class="has-background-grey-light">
+      <p class="title">
         <% if logged_in? %>
           <%= link_to recipe_path(recipe) do %>
             <span class="is-size-4 has-text-weight-bold"><%= recipe.title %></span>
@@ -73,12 +73,12 @@
       <% end %>
 
       <%= link_to edit_recipe_path(recipe), class: 'card-footer-item has-text-weight-bold' do %>
-        <span>Edit Recipe</span>
+        <span>Edit</span>
       <% end %>
 
       <%= link_to recipe_path(recipe), class: 'card-footer-item has-text-weight-bold',
         method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' } do %>
-        <span>Delete Recipe</span>
+        <span>Delete</span>
       <% end %>
     <% elsif logged_in? %>
       <% unless local_assigns[:index_user] %>

@@ -8,7 +8,7 @@
 
     <%= render 'shared/errors', object: @recipe %>
 
-    <div class="column is-4 is-offset-4">
+    <div class="column is-6 is-offset-3">
       <%= form_with model: @recipe, local: true do |form| %>
         <% unless local_assigns[:edit_ingredients] %>
           <% unless local_assigns[:edit_instructions] %>

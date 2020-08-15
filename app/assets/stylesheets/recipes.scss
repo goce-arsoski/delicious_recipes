@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 html {
-  background: url('recipe-collage.jpg') no-repeat center center fixed;
+  background: url('table.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -36,7 +36,7 @@ body::before {
 }
 
 .content h1 {
-  color: black;
+  color: #0d326e;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 200%;
 }

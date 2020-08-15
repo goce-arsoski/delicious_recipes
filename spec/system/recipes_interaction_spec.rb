@@ -44,7 +44,7 @@ RSpec.describe "RecipesInteraction" do
 
       visit recipe_path(recipe)
 
-      click_on 'Edit Recipe'
+      click_on 'Edit'
 
       within('form') do
         fill_in 'recipe_title', with: title
@@ -98,7 +98,7 @@ RSpec.describe "RecipesInteraction" do
     it 'deletes the recipe and redirect to index view' do
       visit recipe_path(recipe)
 
-      click_on 'Delete Recipe'
+      click_on 'Delete'
 
       expect(page).to have_content('Recipes')
     end
