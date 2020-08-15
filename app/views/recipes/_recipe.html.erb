@@ -4,10 +4,10 @@
       <p class="card-header-title has-background-grey-light">
         <% if logged_in? %>
           <%= link_to recipe_path(recipe) do %>
-            <span><%= recipe.title %></span>
+            <span class="title has-text-centered"><%= recipe.title %></span>
           <% end %>
         <% else %>
-           <span><%= recipe.title %></span>
+          <span><%= recipe.title %></span>
         <% end %>
       </p>
     <% end %>
@@ -37,6 +37,15 @@
         <%= recipe.created_at.localtime.strftime("%B %d, %Y") %>
       </span>
     </div>
+    <% if logged_in? %>
+      <div class="level">
+        <strong>
+          <span class="is-size-6 is-italic"> &nbsp;Creator:
+            <%= "#{ recipe.user.first_name } #{ recipe.user.last_name }" %>
+          </span>
+        </strong>
+      </div>
+    <% end %>
     <div class="level-right">
       <span class="is-size-6 is-italic">Edited:
         <%= recipe.updated_at.localtime.strftime("%B %d, %Y") %> &nbsp;

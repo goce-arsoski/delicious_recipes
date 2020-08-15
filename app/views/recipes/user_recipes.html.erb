@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="columns is-multiline">
+    <div class="column is-6 is-offset-3">
+      <div class="content is-size-4">
+        <h1 class="title has-text-centered"><%= "#{ @user.first_name }" %>'s Recipes </h1>
+      </div>
+
+      <% @recipes.each do |recipe| %>
+        <% if recipe.user == @user %>
+
+          <%= render recipe %>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

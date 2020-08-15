@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :recipes
 
+  get 'recipes/user_recipes/:id', to: 'recipes#user_recipes', as: :user_recipes
+
   get 'users/signup', to: 'users#new'
   resources :users, except: :new
 
