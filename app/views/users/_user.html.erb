@@ -1,0 +1,34 @@
+<div class="user column is-6 is-offset-3 has-text-centered">
+  <ul class="has-text-weight-bold is-italic">
+    <li class="title">
+      Full name: <%= "#{@user.first_name} #{@user.last_name}" %>
+    </li>
+    <li class="title">
+      Username: <%= "#{@user.username}" %>
+    </li>
+    <li class="title">
+      e-mail: <%= "#{@user.email}" %>
+    </li>
+  </ul>
+  <br>
+  <div class="title">
+    <%= link_to 'Edit User', edit_user_path(current_user), class: 'button is-light has-text-weight-bold' %>
+    <%= link_to 'Home', root_path, class: 'button is-light has-text-weight-bold' %>
+  </div>
+</div>
+<% if @user.recipes.count != 0 %>
+  <div class="user_recipes column is-6 is-offset-3 has-text-centered">
+    <div class="title">
+      <%= pluralize(@user.recipes.count, "Recipe") %>
+    </div>
+    <ul class="has-text-weight-bold is-italic">
+      <% @user.recipes.each do |recipe| %>
+        <% if recipe.user == @user %>
+          <li>
+            <%= link_to "#{recipe.title}", recipe_path(recipe) %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

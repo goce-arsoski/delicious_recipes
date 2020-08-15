@@ -43,7 +43,7 @@
   </div>
   <nav class="level">
     <div class="level-left">
-      <span class="is-size-6 is-italic"> &nbsp;Created:
+      <span class="is-size-7 is-italic"> &nbsp;Created:
         <%= recipe.created_at.localtime.strftime("%B %d, %Y") %>
       </span>
     </div>
@@ -55,7 +55,7 @@
       </strong>
     </div>
     <div class="level-right">
-      <span class="is-size-6 is-italic">Edited:
+      <span class="is-size-7 is-italic">Edited:
         <%= recipe.updated_at.localtime.strftime("%B %d, %Y") %> &nbsp;
       </span>
     </div>
@@ -82,9 +82,9 @@
       <% end %>
     <% elsif logged_in? %>
       <% unless local_assigns[:index_user] %>
-          <%= link_to root_path, class: 'card-footer-item has-text-weight-bold' do %>
-            <span>Home</span>
-          <% end %>
+        <%= link_to root_path, class: 'card-footer-item has-text-weight-bold' do %>
+          <span>Home</span>
+        <% end %>
       <% else %>
         <%= link_to recipe_path(recipe), class: 'card-footer-item has-text-weight-bold' do %>
           <span>Show</span>

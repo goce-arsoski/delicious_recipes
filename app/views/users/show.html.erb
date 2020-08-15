@@ -9,14 +9,13 @@
           Username: <%= "#{@user.username}" %>
         </li>
         <li class="title">
-          e-mail: <%= @user.email %>
+          e-mail: <%= "#{@user.email}" %>
         </li>
       </ul>
-      <br><br>
+      <br>
       <div class="title">
-        <%= link_to root_path, class: 'button-is-info has-text-weight-bold' do %>
-          <span>> Home <</span>
-        <% end %>
+        <%= link_to 'Edit User', edit_user_path(current_user), class: 'button is-light has-text-weight-bold' %>
+        <%= link_to 'Home', root_path, class: 'button is-light has-text-weight-bold' %>
       </div>
     </div>
     <% if @user.recipes.count != 0 %>
