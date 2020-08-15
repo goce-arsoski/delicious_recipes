@@ -17,7 +17,7 @@ RSpec.describe "RecipesInteraction" do
       instructions = 'Test instruction'
       ingredients = 'Test ingredient'
 
-      click_on('Add Recipe')
+      click_on 'Add Recipe'
 
       within('form') do
         fill_in 'recipe_title', with: title
@@ -60,9 +60,41 @@ RSpec.describe "RecipesInteraction" do
       expect(page).to have_content(instructions)
       expect(page).to have_content(ingredients)
     end
+
+    it 'edits instructions and shows the recipe' do
+      instructions = 'Test instruction'
+
+      visit recipe_path(recipe)
+
+      click_on 'Edit Instructions'
+
+      within('form') do
+        fill_in 'recipe_instructions_attributes_0_step', with: instructions
+
+        click_on 'Update'
+      end
+
+      expect(page).to have_content(instructions)
+    end
+
+    it 'edits ingredients and shows the recipe' do
+      ingredients = 'Test ingredient'
+
+      visit recipe_path(recipe)
+
+      click_on 'Edit Ingredients'
+
+      within('form') do
+        fill_in 'recipe_ingredients_attributes_0_name', with: ingredients
+
+        click_on 'Update'
+      end
+
+      expect(page).to have_content(ingredients)
+    end
   end
 
-  describe 'Deleting an recipe' do
+  describe 'Deleting a recipe' do
     it 'deletes the recipe and redirect to index view' do
       visit recipe_path(recipe)
 

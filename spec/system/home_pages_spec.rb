@@ -40,6 +40,12 @@ RSpec.describe "HomePages" do
       expect(expecting).to be true
     end
 
+    it 'shows the My Recipes link' do
+      expecting = page.has_link?('My Recipe')
+
+      expect(expecting).to be true
+    end
+
     it 'shows the Sign out link' do
       expecting = page.has_link?('Sign out')
 

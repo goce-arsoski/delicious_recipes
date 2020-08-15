@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   skip_before_action :require_login, only: [:index]
   before_action :find_recipe, only: [:show, :edit, :edit_instructions, :edit_ingredients, :update, :destroy]
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :edit_instructions, :edit_ingredients, :update, :destroy]
 
   def index
     @recipes = Recipe.all.order('created_at DESC')
@@ -32,6 +32,8 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @recipe.instructions.build
+    @recipe.ingredients.build
   end
 
   def edit_instructions
