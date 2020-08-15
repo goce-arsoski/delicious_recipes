@@ -1,3 +1,13 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+div.user {
+  background-color: rgba(240, 102, 102, 0.829);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div.user_recipes {
+  background-color: rgba(121, 172, 121, 0.932);
+  font-family: Arial, Helvetica, sans-serif;
+}
