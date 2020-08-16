@@ -1,5 +1,7 @@
 <ul>
+  <% count = 0 %>
   <% recipe.instructions.each do |instruction| %>
-    <%= "#{instruction.step}" %>
+    <% count += 1 %>
+    <%= "#{count}. " "#{instruction.step}" %>
   <% end %>
 </ul>
