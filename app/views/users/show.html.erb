@@ -20,21 +20,31 @@
     <div class="user_recipes column is-6 is-offset-3 has-text-centered">
       <% if @user.recipes.count != 0 %>
         <div class="title">
-          You have:
-          <%= pluralize(@user.recipes.count, "Recipe") %>
+          <% if equal_with_current_user?(@user) %>
+            You have
+          <% else %>
+            <%= "#{@user.first_name} " %>have
+          <% end %>
+          <i><%= pluralize(@user.recipes.count, "Recipe") %></i>
         </div>
-        <ul class="has-text-weight-bold is-italic">
-          <% @user.recipes.each do |recipe| %>
+        <div class="has-text-weight-bold is-italic">
+          <% count = 0 %>
+            <% @user.recipes.each do |recipe| %>
             <% if recipe.user == @user %>
-              <li>
-                <%= link_to "#{recipe.title}", recipe_path(recipe) %>
-              </li>
+              <ul>
+                <% count += 1 %>
+                <li><%= link_to "#{count}. #{recipe.title}", recipe_path(recipe) %></li>
+              </ul>
             <% end %>
           <% end %>
-        </ul>
+        </div>
       <% else %>
         <div class="title">
-          You don't have own <i>Recipes</i> yet.
+                  <% if equal_with_current_user?(@user) %>
+            You don't have <i>Recipes</i> yet.
+          <% else %>
+            <%= "#{@user.first_name} " %>don't have <i>Recipes</i>.
+          <% end %>
         </div>
       <% end %>
     </div>

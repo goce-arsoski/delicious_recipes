@@ -84,6 +84,12 @@ RSpec.describe 'HomePages' do
       expect(expecting).to be true
     end
 
+    it 'shows the recipes user' do
+      expecting = page.has_content?("#{recipe.user.first_name} #{recipe.user.last_name}")
+
+      expect(expecting).to be true
+    end
+
     it 'shows the recipe created time' do
       expecting = page.has_content?(recipe.created_at.localtime.strftime('%B %d, %Y'))
 

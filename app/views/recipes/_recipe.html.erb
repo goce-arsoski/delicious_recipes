@@ -47,13 +47,15 @@
         <%= recipe.created_at.localtime.strftime("%B %d, %Y") %>
       </span>
     </div>
+    <% unless equal_with_current_user?(recipe.user) %>
     <div class="level">
       <strong>
-        <span class="is-size-6 is-italic"> &nbsp;Creator:
+        <span class="is-size-6 is-italic"> &nbsp;Created by:
           <%= link_to "#{recipe.user.first_name} #{recipe.user.last_name}", recipe.user %>
         </span>
       </strong>
     </div>
+    <% end %>
     <div class="level-right">
       <span class="is-size-7 is-italic">Edited:
         <%= recipe.updated_at.localtime.strftime("%B %d, %Y") %> &nbsp;
