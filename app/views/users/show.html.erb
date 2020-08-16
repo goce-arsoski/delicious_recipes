@@ -14,13 +14,13 @@
       </ul>
       <br>
       <div class="title">
-        <%= link_to 'Edit User', edit_user_path(current_user), class: 'button is-light has-text-weight-bold' %>
         <%= link_to 'Home', root_path, class: 'button is-light has-text-weight-bold' %>
       </div>
     </div>
-    <% if @user.recipes.count != 0 %>
-      <div class="user_recipes column is-6 is-offset-3 has-text-centered">
+    <div class="user_recipes column is-6 is-offset-3 has-text-centered">
+      <% if @user.recipes.count != 0 %>
         <div class="title">
+          You have:
           <%= pluralize(@user.recipes.count, "Recipe") %>
         </div>
         <ul class="has-text-weight-bold is-italic">
@@ -32,7 +32,11 @@
             <% end %>
           <% end %>
         </ul>
-      </div>
-    <% end %>
+      <% else %>
+        <div class="title">
+          You don't have own <i>Recipes</i> yet.
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

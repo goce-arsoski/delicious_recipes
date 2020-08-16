@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "HomePages" do
+RSpec.describe 'HomePages' do
   before do
     driven_by :rack_test
 
@@ -41,7 +41,19 @@ RSpec.describe "HomePages" do
     end
 
     it 'shows the My Recipes link' do
-      expecting = page.has_link?('My Recipe')
+      expecting = page.has_link?('My Recipes')
+
+      expect(expecting).to be true
+    end
+
+    it 'shows the Edit User link' do
+      expecting = page.has_link?('Edit User')
+
+      expect(expecting).to be true
+    end
+
+    it 'shows the My Profile link' do
+      expecting = page.has_link?('My Profile')
 
       expect(expecting).to be true
     end
@@ -53,8 +65,8 @@ RSpec.describe "HomePages" do
     end
   end
 
-  context 'when an recipe is present' do
-    let!(:recipe) { create(:recipe, title: 'Testing with RSpec', description: 'Testing recipe description') }
+  context 'when a recipe is present' do
+    let!(:recipe) { create(:recipe) }
 
     before do
       visit root_path
@@ -66,20 +78,20 @@ RSpec.describe "HomePages" do
       expect(expecting).to be true
     end
 
-    it 'shows the recipe body' do
+    it 'shows the recipe description' do
       expecting = page.has_content?(recipe.description)
 
       expect(expecting).to be true
     end
 
     it 'shows the recipe created time' do
-      expecting = page.has_content?(recipe.created_at.localtime.strftime("%B %d, %Y"))
+      expecting = page.has_content?(recipe.created_at.localtime.strftime('%B %d, %Y'))
 
       expect(expecting).to be true
     end
 
     it 'shows the recipe last edited time' do
-      expecting = page.has_content?(recipe.updated_at.localtime.strftime("%B %d, %Y"))
+      expecting = page.has_content?(recipe.updated_at.localtime.strftime('%B %d, %Y'))
 
       expect(expecting).to be true
     end

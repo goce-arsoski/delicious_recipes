@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="miltiline">
+    <div class="column is-6 is-offset-3">
+      <div class="content is-size-4">
+        <h1 class="title has-text-centered has-text-weight-bold is-italic">New User</h1>
+      </div>
+    </div>
+
+    <%= render 'shared/errors', object: user %>
+
+    <div class="column is-4 is-offset-4">
+      <%= form_with model: user, local: true do |form| %>
+        <div class="field">
+          <%= form.label :username, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :username, class: 'input', placeholder: 'Insert username' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :email, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :email, class: 'input', placeholder: 'Insert your email' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :first_name, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :first_name, class: 'input', placeholder: 'Insert your first name' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :last_name, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :last_name, class: 'input', placeholder: 'Insert your last name' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :password, class: 'label' %>
+          <p class="control has-icons-left">
+            <%= form.text_field :password, class: 'input', type: 'password', placeholder: 'Insert password' %>
+          </p>
+        </div>
+
+        <div class="field">
+          <%= form.label :password_confirmation, class: 'label' %>
+          <p class="control has-icons-left">
+            <%= form.text_field :password_confirmation, class: 'input', type: 'password', placeholder: 'Confirm password' %>
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <%= form.submit submit, class: 'button is-success' %>
+            <%= link_to 'Cancel', cancel, class: 'button is-danger' %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

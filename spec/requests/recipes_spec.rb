@@ -99,34 +99,34 @@ RSpec.describe 'Recipes' do
       end
     end
 
-      context 'when no user is signed in' do
-        let(:recipe) { create(:recipe) }
+    context 'when no user is signed in' do
+      let(:recipe) { create(:recipe) }
 
-        it 'redirect back to root path' do
-          get "/recipes/#{recipe.id}/edit"
+      it 'redirect back to root path' do
+        get "/recipes/#{recipe.id}/edit"
 
-          expect(flash[:danger]).to eq 'Please Sign in to continue.'
-          expect(response).to redirect_to(login_path)
-        end
+        expect(flash[:danger]).to eq 'Please Sign in to continue.'
+        expect(response).to redirect_to(login_path)
+      end
 
-        it 'redirect back to root when updating a recipe' do
-          patch_params = {
-            params: {
-              recipe: {
-                title: recipe.title,
-                description: "New description",
-                instructions: 'New instruction',
-                ingredients: 'New ingredient'
-              }
+      it 'redirect back to root when updating a recipe' do
+        patch_params = {
+          params: {
+            recipe: {
+              title: recipe.title,
+              description: "New description",
+              instructions: 'New instruction',
+              ingredients: 'New ingredient'
             }
           }
+        }
 
-          patch "/recipes/#{recipe.id}", patch_params
+        patch "/recipes/#{recipe.id}", patch_params
 
-          expect(flash[:danger]).to eq 'Please Sign in to continue.'
-          expect(response).to redirect_to(login_path)
-        end
+        expect(flash[:danger]).to eq 'Please Sign in to continue.'
+        expect(response).to redirect_to(login_path)
       end
+    end
   end
 
   describe 'Editing instructions' do
@@ -205,34 +205,34 @@ RSpec.describe 'Recipes' do
       end
     end
 
-      context "when no user is signed in" do
-        let(:recipe) { create(:recipe) }
+    context 'when no user is signed in' do
+      let(:recipe) { create(:recipe) }
 
-        it 'redirect back to root path' do
-          get "/recipes/#{recipe.id}/edit_instructions"
+      it 'redirect back to root path' do
+        get "/recipes/#{recipe.id}/edit_instructions"
 
-          expect(flash[:danger]).to eq 'Please Sign in to continue.'
-          expect(response).to redirect_to(login_path)
-        end
+        expect(flash[:danger]).to eq 'Please Sign in to continue.'
+        expect(response).to redirect_to(login_path)
+      end
 
-        it 'redirect back to root when updating a recipe' do
-          patch_params = {
-            params: {
-              recipe: {
-                title: recipe.title,
-                description: "New description",
-                instructions: 'New instruction',
-                ingredients: 'New ingredient'
-              }
+      it 'redirect back to root when updating a recipe' do
+        patch_params = {
+          params: {
+            recipe: {
+              title: recipe.title,
+              description: 'New description',
+              instructions: 'New instruction',
+              ingredients: 'New ingredient'
             }
           }
+        }
 
-          patch "/recipes/#{recipe.id}", patch_params
+        patch "/recipes/#{recipe.id}", patch_params
 
-          expect(flash[:danger]).to eq 'Please Sign in to continue.'
-          expect(response).to redirect_to(login_path)
-        end
+        expect(flash[:danger]).to eq 'Please Sign in to continue.'
+        expect(response).to redirect_to(login_path)
       end
+    end
   end
 
   describe 'Editing ingredients' do
@@ -311,34 +311,34 @@ RSpec.describe 'Recipes' do
       end
     end
 
-      context "when no user is signed in" do
-        let(:recipe) { create(:recipe) }
+    context 'when no user is signed in' do
+      let(:recipe) { create(:recipe) }
 
-        it 'redirect back to root path' do
-          get "/recipes/#{recipe.id}/edit_ingredients"
+      it 'redirect back to root path' do
+        get "/recipes/#{recipe.id}/edit_ingredients"
 
-          expect(flash[:danger]).to eq 'Please Sign in to continue.'
-          expect(response).to redirect_to(login_path)
-        end
+        expect(flash[:danger]).to eq 'Please Sign in to continue.'
+        expect(response).to redirect_to(login_path)
+      end
 
-        it 'redirect back to root when updating a recipe' do
-          patch_params = {
-            params: {
-              recipe: {
-                title: recipe.title,
-                description: "New description",
-                instructions: 'New instruction',
-                ingredients: 'New ingredient'
-              }
+      it 'redirect back to root when updating a recipe' do
+        patch_params = {
+          params: {
+            recipe: {
+              title: recipe.title,
+              description: 'New description',
+              instructions: 'New instruction',
+              ingredients: 'New ingredient'
             }
           }
+        }
 
-          patch "/recipes/#{recipe.id}", patch_params
+        patch "/recipes/#{recipe.id}", patch_params
 
-          expect(flash[:danger]).to eq 'Please Sign in to continue.'
-          expect(response).to redirect_to(login_path)
-        end
+        expect(flash[:danger]).to eq 'Please Sign in to continue.'
+        expect(response).to redirect_to(login_path)
       end
+    end
   end
 
   describe 'Deleting a recipe' do
@@ -371,7 +371,7 @@ RSpec.describe 'Recipes' do
       end
     end
 
-    context "when no user is signed in" do
+    context 'when no user is signed in' do
       let(:recipe) { create(:recipe) }
 
       it 'redirect back to root path' do

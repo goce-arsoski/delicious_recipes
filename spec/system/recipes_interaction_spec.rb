@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "RecipesInteraction" do
+RSpec.describe 'RecipesInteraction' do
   let(:user) { create(:user) }
   let(:recipe) { create(:recipe, user: user) }
 

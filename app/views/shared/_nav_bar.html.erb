@@ -15,6 +15,10 @@
             <%= link_to 'Add Recipe', new_recipe_path, class: 'button is-primary has-text-weight-bold' %>
             <%= link_to 'My Recipes', user_recipes_path(current_user), class: 'button is-info has-text-weight-bold' %>
             &nbsp &nbsp
+            <% if logged_in? %>
+              <%= link_to 'Edit User', edit_user_path(current_user), class: 'button is-light has-text-weight-bold' %>
+            <% end %>
+
             <%= link_to 'My Profile', user_path(current_user), class: 'button is-light has-text-weight-bold' %>
             <%= link_to 'Sign out', logout_path, method: :delete, class: 'button is-danger has-text-weight-bold' %>
           <% else %>
