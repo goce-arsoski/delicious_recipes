@@ -114,7 +114,7 @@ RSpec.describe 'Recipes' do
           params: {
             recipe: {
               title: recipe.title,
-              description: "New description",
+              description: 'New description',
               instructions: 'New instruction',
               ingredients: 'New ingredient'
             }
