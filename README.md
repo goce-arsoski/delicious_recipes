@@ -22,9 +22,9 @@ REQUIREMENTS
 ------------
 
 In order to install the application you need to have the minimun requirements:
-- Ruby version 2.6.5
+- Ruby version 2.7.1
 - Rails 6.0.3
-- PostgreSQL 12.3
+- PostgreSQL 13.1
 
 INSTALLATION
 ------------
